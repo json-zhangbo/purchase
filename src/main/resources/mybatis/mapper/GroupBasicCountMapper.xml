@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongran.purchase.dao.GroupBasicCountDao" >
+    <resultMap id="CountResultMap" type="com.zhongran.purchase.entity.GroupBasicCount" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="BASICID" property="basicId" jdbcType="VARCHAR" />
+        <result column="VOLUME" property="volume" jdbcType="DOUBLE"  javaType="double" />
+         <result column="MASSPREC" property="massprec" jdbcType="DOUBLE"  javaType="double" />
+        <result column="VOLUMEPREC" property="voluMeprec" jdbcType="DOUBLE" javaType="double" />
+        <result column="HOTCORRECT" property="hotCorrect" jdbcType="DOUBLE" javaType="double" />
+         <result column="VISCOSITY" property="visCosity" jdbcType="DOUBLE" javaType="double" />
+          <result column="VISMASSPREC" property="visMassprec" jdbcType="DOUBLE" javaType="double" />
+           <result column="MIXINGDEN" property="mixIngden" jdbcType="DOUBLE" javaType="double" />
+            <result column="MIXSULFURCONT" property="mixSulfurcont" jdbcType="DOUBLE" javaType="double" />
+             <result column="MIXHOT" property="mixHot" jdbcType="DOUBLE" javaType="double" />
+              <result column="MIXCOST" property="mixCost" jdbcType="DOUBLE" javaType="double" />
+              <result column="DOCNUM" property="docNum" jdbcType="VARCHAR" javaType="string" />
+                <result column="TON" property="ton" jdbcType="DOUBLE" javaType="double" />
+    </resultMap>
+    
+    <resultMap id="countResult" type="com.zhongran.purchase.vo.GroupBasicAndCount">
+          <id column="id" property="id" jdbcType="VARCHAR" />
+            <result column="BASICID" property="basicId" jdbcType="VARCHAR" javaType="string" />
+             <result column="GROUPNAME" property="groupName" jdbcType="VARCHAR" javaType="string" />
+              <result column="cost" property="cost" jdbcType="DOUBLE" javaType="double" />
+                <result column="TON" property="ton" jdbcType="DOUBLE" javaType="double" />
+                <result column="DOCNUM" property="docNum" jdbcType="VARCHAR" javaType="string"/>
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, basicId, volume, massprec, voluMeprec,hotCorrect,visCosity,visMassprec,mixIngden,mixSulfurcont,mixHot,mixCost,docNum,ton
+    </sql>
+    <select id="getAll" resultMap="CountResultMap"  >
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM GROUPBASICCOUNT ORDER BY id DESC
+    </select>
+    
+	 <select id="getByDocNum" resultMap="countResult"  >
+	        SELECT c.id,c.basicId, b.groupName,c.MIXCOST as cost,c.ton,c.docNum FROM  GROUPBASIC b,GROUPBASICCOUNT c WHERE b.id=c.basicId
+	        AND  c.docNum= #{docNum}
+	    </select>
+	    
+    <select id="getOne" parameterType="java.lang.Long" resultMap="CountResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM GROUPBASICCOUNT
+	   WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.zhongran.purchase.entity.GroupBasicCount" >
+       INSERT INTO 
+       		GROUPBASICCOUNT
+       		(id,basicId, volume, massprec, voluMeprec,hotCorrect,visCosity,visMassprec,mixIngden,mixSulfurcont,mixHot,mixCost,docNum,ton) 
+       	VALUES
+       		(#{id},#{basicId}, #{volume},#{massprec}, #{voluMeprec}, #{hotCorrect}, #{visCosity}, #{visMassprec}, #{mixIngden}, #{mixSulfurcont}, #{mixHot}, #{mixCost}, #{docNum}, #{ton})
+    </insert>
+</mapper>

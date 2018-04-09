@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongran.purchase.dao.ResultDao" >
+    <resultMap id="CountResultMap" type="com.zhongran.purchase.entity.Result" >
+        <id column="id" property="id" jdbcType="VARCHAR" /> 
+        <result column="BASICID" property="basicId" jdbcType="VARCHAR" javaType="string"/>
+        <result column="MIXMONEY" property="mixMoney" jdbcType="DOUBLE"  javaType="double" />
+         <result column="TON" property="ton" jdbcType="DOUBLE"  javaType="double" />
+        <result column="MAXTON" property="maxTon" jdbcType="DOUBLE" javaType="double" />
+        <result column="CSTATUS" property="cstatus" jdbcType="CHAR" javaType="string" />
+        <result column="DOCNUM" property="docNum" jdbcType="VARCHAR" javaType="string" />
+    </resultMap>
+    
+     <resultMap id="CountResultAllMap" type="com.zhongran.purchase.vo.ResultAll" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="BASICID" property="basicId" jdbcType="VARCHAR" javaType="string"/>
+        <result column="MIXMONEY" property="mixMoney" jdbcType="DOUBLE"  javaType="double" />
+         <result column="TON" property="ton" jdbcType="DOUBLE"  javaType="double" />
+        <result column="MAXTON" property="maxTon" jdbcType="DOUBLE" javaType="double" />
+        <result column="CSTATUS" property="cstatus" jdbcType="CHAR" javaType="string" />
+        <result column="DOCNUM" property="docNum" jdbcType="VARCHAR" javaType="string" />
+        <result column="GROUPNAME" property="groupName" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        id, basicId, mixMoney, ton, maxTon, cstatus,docNum
+    </sql>
+
+    <select id="getAll" resultMap="CountResultMap"  >
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM RESULT ORDER BY id DESC
+    </select>
+
+
+    <select id="getAllP" resultMap="CountResultAllMap"  >
+       SELECT r.id, r.basicId, r.mixMoney, r.ton, r.maxTon, r.cstatus,r.docNum,g.groupName
+	   FROM RESULT r inner join GROUPBASIC g on r.BASICID=g.id where  r.cstatus='P' and r.DOCNUM=#{docNum}  ORDER BY r.id DESC
+    </select>
+    
+    <select id="getOne" parameterType="java.lang.Long" resultMap="CountResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM RESULT
+	   WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.zhongran.purchase.entity.Result" >
+    
+       INSERT INTO 
+       		RESULT
+       		(id,basicId,mixMoney,ton,maxTon,docNum) 
+       	VALUES
+       		(#{id},#{basicId}, #{mixMoney},#{ton}, #{maxTon},#{docNum})
+    </insert>
+</mapper>

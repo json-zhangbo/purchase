@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongran.purchase.dao.QresultDao" >
+    <resultMap id="CountResultMap" type="com.zhongran.purchase.entity.Qresult" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="RESULTDATE" property="resultDate" jdbcType="TIMESTAMP" />
+        <result column="QUAGROUPNAME" property="quaGroupname" jdbcType="VARCHAR"  javaType="string" />
+         <result column="FDNAME" property="fdName" jdbcType="VARCHAR"  javaType="string" />
+    </resultMap>
+    
+    <resultMap id="allResult" type="com.zhongran.purchase.vo.QresultAll" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="RESULTDATE" property="resultDate" jdbcType="TIMESTAMP" />
+        <result column="QUAGROUPNAME" property="quaGroupname" jdbcType="VARCHAR"  javaType="string" />
+         <result column="FDNAME" property="fdName" jdbcType="VARCHAR"  javaType="string" />
+         <result column="OPTIOINCODE" property="optioincode" jdbcType="VARCHAR"  javaType="string" />
+         <result column="COST" property="cost" jdbcType="DOUBLE"  javaType="double" />
+         <result column="DOCNUM" property="docNum" jdbcType="VARCHAR"  javaType="string" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, resultDate, quaGroupname, fdName
+    </sql>
+
+    <sql id="Base_Column_P" >
+        q.id, q.resultDate, q.quaGroupname, q.fdName,x.optioincode,x.cost   
+    </sql>
+    
+    <select id="getAll" resultMap="CountResultMap"  >
+       SELECT  
+       <include refid="Base_Column_List" />
+	   FROM  QRESULT order by resultDate  DESC
+    </select>
+
+    <select id="getAllP" resultMap="allResult"  >
+       SELECT  
+       <include refid="Base_Column_P" />
+	   FROM  QRESULT q,QUALITYINDEX x where x.QUAITID=q.id  and x.DOCNUM is null order by  x.id DESC
+    </select>  
+</mapper>

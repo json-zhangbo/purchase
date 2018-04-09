@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongran.purchase.dao.QualityIndexDao" >
+    <resultMap id="CountResultMap" type="com.zhongran.purchase.entity.QualityIndex" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="QUAITID" property="quaitid" jdbcType="BIGINT" />
+        <result column="OPTIOINCODE" property="optioinCode" jdbcType="VARCHAR"  javaType="string" />
+         <result column="COST" property="cost" jdbcType="DOUBLE"  javaType="double" />
+        <result column="STATUS" property="status" jdbcType="CHAR" javaType="string" />
+        <result column="DOCNUM" property="docNum" jdbcType="VARCHAR" javaType="string" />
+    </resultMap>
+     
+    <sql id="Base_Column_List" >
+        id, quaitid, optioinCode, cost,  status,docNum
+    </sql>
+ 
+    <insert id="insert" parameterType="com.zhongran.purchase.entity.QualityIndex" >
+       INSERT INTO 
+       		QUALITYINDEX
+       		(id,quaitid,optioinCode,cost,status,docNum) 
+       	VALUES
+       		(#{id},#{quaitid}, #{optioinCode},#{cost}, #{status},#{docNum})
+    </insert>
+</mapper>

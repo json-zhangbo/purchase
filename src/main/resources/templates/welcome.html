@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jsong-zhang</title>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css"></link>
+    
+    <link rel="stylesheet" href="css/bootstrap-table.css"></link>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet"></link>
+	<link href="css/bootstrapSwitch.css" rel="stylesheet"></link>
+	
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"></link>
+  </head>
+  <body class="app sidebar-mini rtl">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.html"><!-- 中燃集团--></a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        <li class="app-search">
+          <input class="app-search__input" type="search" placeholder="Search"></input>
+          <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+        <!--Notification Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"><span class="badge">4</span></i></a>
+          <ul class="app-notification dropdown-menu dropdown-menu-right">
+            <li class="app-notification__title">You have 4 new notifications.</li>
+            <div class="app-notification__content">
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Lisa sent you a mail</p>
+                    <p class="app-notification__meta">2 min ago</p>
+                  </div></a></li>
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Mail server not working</p>
+                    <p class="app-notification__meta">5 min ago</p>
+                  </div></a></li>
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Transaction complete</p>
+                    <p class="app-notification__meta">2 days ago</p>
+                  </div></a></li>
+              <div class="app-notification__content">
+                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                    <div>
+                      <p class="app-notification__message">Lisa sent you a mail</p>
+                      <p class="app-notification__meta">2 min ago</p>
+                    </div></a></li>
+                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                    <div>
+                      <p class="app-notification__message">Mail server not working</p>
+                      <p class="app-notification__meta">5 min ago</p>
+                    </div></a></li>
+                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                    <div>
+                      <p class="app-notification__message">Transaction complete</p>
+                      <p class="app-notification__meta">2 days ago</p>
+                    </div></a></li>
+              </div>
+            </div>
+            <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
+          </ul>
+        </li>
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="img/48.jpg" alt="User Image"></img>
+        <div>
+          <p class="app-sidebar__user-name">个人工作台</p>
+          <p class="app-sidebar__user-designation">成本计算</p>
+        </div>
+      </div>
+      
+    </aside>
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-th-list"></i>基础版1.0</h1>
+          <p>成本计算系统</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active"><a href="#">基础数据</a></li>
+        </ul>
+      </div>
+      <div class="row">
+		 <div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title">基础数据</h3>
+             <div id="tooblarTb">
+             <button type="button" class="btn btn-primary noty" data-toggle="modal" data-target="#myModal">录入数据</button>
+            </div>
+            <table id="tableDb">
+              
+            </table>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="tile">
+          <!-- <button type="button" class="btn btn-primary noty" id="addCon">添加指标</button> -->
+            <button type="button" class="btn btn-success" id="startCount">开始计算</button>
+            <form  id="conditFrm">
+            <table class="table table-striped" id="tableCond">
+             
+            </table>
+            </form>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">计算结果:<span id="resultSPan"></span></h3>
+              
+            <table class="table table-bordered" id="resultTb"> 
+               
+            </table>
+          </div>
+        </div>
+	 </div>
+	
+    </main>
+    <div class="modal hide fade" data-toggle="modal" role="dialog" id="myModal">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+		  <div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">
+					燃油基础数据
+				</h4>
+			</div>
+		   <div class="modal-body">
+		   <form  action="/purchase/groupBasic/basic" method="post">
+		   <table class="table-striped table-bordered bootstrap-datatable datatable">
+		     <tr>
+		       <th style="width:50%">组份名称</th>
+		       <td style="width:50%"><input  type="text" name="groupName" ></input></td>
+		     </tr>
+		     <tr>
+		       <th>入库成本</th>
+		       <td><input  type="text" name="storageMoney"></input></td>
+		     </tr>
+		     <tr>
+		       <th>密度(20度）</th>
+		       <td><input  type="text"  name="md"></input></td>
+		     </tr>
+		     <tr>
+		       <th>运动粘度</th>
+		       <td><input  type="text"  name="motionvIs"></input></td>
+		     </tr>
+		     <tr>
+		       <th>粘度温度</th>
+		       <td><input type="text" name="motionTemp"></input></td>
+		     </tr>
+		     <tr> 
+		       <th>硫含量</th>
+		       <td><input  type="text"  name="sulfurCon"></input></td>
+		     </tr>
+		     <tr>
+		       <th>净热值</th>
+		       <td><input  type="text"  name="nethot"></input></td>
+		     </tr>
+		   </table>
+		  
+		<div class="modal-footer">
+		    <input type="submit" class="btn btn-primary"   value="提交"></input>
+		      <input type="button" class="btn btn-primary"  data-dismiss="modal" value="关闭"></input>
+		</div>
+	   </form>
+	   </div>
+	   </div>
+	</div>
+	</div>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    
+    <!-- Page specific javascripts-->
+   
+     <script src="js/bootstrap-table.min.js"></script>
+       <script src="js/bootstrap-table-zh-CN.min.js"></script>
+       <script src="js/bootstrapSwitch.js"></script> 
+       <script src="js/jquery.noty.js"></script>
+        <script language="javascript" src="js/jquery-form-json.js"></script> 
+      <script language="javascript" src="js/index.js"></script> 
+
+  </body>
+</html>

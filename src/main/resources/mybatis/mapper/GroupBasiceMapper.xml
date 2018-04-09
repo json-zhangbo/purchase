@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongran.purchase.dao.GroupBasiceDao" >
+    <resultMap id="BaseResultMap" type="com.zhongran.purchase.entity.GroupBasic" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="GROUPNAME" property="groupName" jdbcType="VARCHAR" />
+        <result column="STORAGEMONEY" property="storageMoney" jdbcType="DOUBLE"  javaType="double" />
+         <result column="MD" property="md" jdbcType="DOUBLE"  javaType="double" />
+        <result column="MOTIONVIS" property="motionvIs" jdbcType="DOUBLE" javaType="double" />
+          <result column="SULFURCON" property="sulfurCon" jdbcType="DOUBLE" javaType="double" />
+            <result column="NETHOT" property="nethot" jdbcType="DOUBLE" javaType="double" />
+              <result column="MOTIONTEMP" property="motionTemp" jdbcType="DOUBLE" javaType="double" />
+        <result column="QRY_TIME" property="optime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        id, groupName, storageMoney, motionvIs, sulfurCon,nethot,motionTemp,optime,md
+    </sql>
+    <select id="getAll" resultMap="BaseResultMap"  >
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM GROUPBASIC ORDER BY optime DESC
+    </select>
+
+    <select id="getOne" parameterType="java.lang.String" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM GROUPBASIC
+	   WHERE id = #{id}
+    </select>
+
+    <insert id="insertBasicEntity" parameterType="com.zhongran.purchase.entity.GroupBasic" >
+       INSERT INTO 
+       		GROUPBASIC
+       		(id,groupName,storageMoney,md,motionvIs,sulfurCon,nethot,motionTemp,optime) 
+       	VALUES
+       		(#{id},#{groupName}, #{storageMoney},#{md}, #{motionvIs}, #{sulfurCon}, #{nethot}, #{motionTemp}, #{optime})
+    </insert>
+ 
+ 
+
+</mapper>

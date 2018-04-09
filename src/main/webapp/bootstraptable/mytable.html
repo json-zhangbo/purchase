@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-table.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-editable.css">
+   
+    <script src="bootstrap/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+     <script src="bootstrap-table.min.js"></script>
+  </head>
+  <body  >
+<div class="container">
+        <table id="table">
+        </table>
+    </div>
+<script>
+    $('#table').bootstrapTable({
+    columns: [{
+        field: 'id',
+        title: 'Item ID'
+    }, {
+        field: 'name',
+        title: 'Item Name'
+    }, {
+        field: 'price',
+        title: 'Item Price'
+    }],
+    data: [{
+        id: 1,
+        name: 'Item 1',
+        price: '$1'
+    }, {
+        id: 2,
+        name: 'Item 2',
+        price: '$2'
+    }, {
+        id: 3,
+        name: 'Item 3',
+        price: '$2'
+    }, {
+        id: 4,
+        name: 'Item 4',
+        price: '$2'
+    }, {
+        id: 5,
+        name: 'Item 6',
+        price: '$6'
+    }, {
+        id: 6,
+        name: 'Item 6',
+        price: '$6'
+    }, {
+        id: 7,
+        name: 'Item 7',
+        price: '$7'
+    }]
+});
+</script>
+
+<script type="text/javascript">
+var b_iframe = window.parent.document.getElementById("Iframe");
+var hash_url = window.location.hash;
+if(hash_url.indexOf("#")>=0){
+var hash_width = hash_url.split("#")[1].split("|")[0]+"px";
+var hash_height = hash_url.split("#")[1].split("|")[1]+"px";
+b_iframe.style.width = hash_width;
+b_iframe.style.height = hash_height;
+}
+</script>
+  </body>
+</html>
